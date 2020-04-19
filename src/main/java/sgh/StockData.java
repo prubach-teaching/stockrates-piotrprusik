@@ -6,17 +6,53 @@ import java.io.InputStream;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Scanner;
+import java.io.FileWriter;
 
 public class StockData {
 
     public static void getAndProcessChange(String stock) throws IOException {
         String filePath = "data_in/" + stock + ".csv";
-        //TODO HINT: You might need to check if the file doesn't already exist...
+        File datain = new File(filePath);
+        
+        // checking if file exists, download when not
+        if (!datain.exists()) {        
         download("https://query1.finance.yahoo.com/v7/finance/download/" + stock +
                                 "?period1=1554504399&period2=1586126799&interval=1d&events=history",
-                        filePath);
+                        filePath); 
+        }
+        
+        Scanner scanner = new Scanner(datain);        
+        String line = scanner.nextLine();
+        
+        //new file in dataout folder        
+        FileWriter dataout = new FileWriter("data_out/" + stock + ".csv");
+        dataout.write(line + ",Change" + "\n");
+        
+        
+            
+            if (scanner.hasNextLine()) {
+            
+                line = scanner.nextLine();
+                    
+                String[] values = line.split(",");
 
-        //TODO Your code here
+                double open = Double.valueOf(values[1]);
+                double close = Double.valueOf(values[4]);
+
+                dataout.write(line + "," + ((close - open) / open) * 100 + "\n");
+
+            
+            
+            }
+            
+        
+        dataout.close();
+        
+    
+        
+      
+       
     }
 
     public static void download(String url, String fileName) throws IOException {

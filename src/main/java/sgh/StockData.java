@@ -42,7 +42,7 @@ public class StockData {
         
         dataout.close();
         
-    }
+    
         
       
        

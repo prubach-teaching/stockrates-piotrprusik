@@ -14,10 +14,7 @@ public class StockData {
         File datain = new File(filepath);
         
         // checking if file exists, download when not
-        if (datain.exists()) {
-        continue 
-        } 
-        else {
+        if (!datain.exists()) {        
         download("https://query1.finance.yahoo.com/v7/finance/download/" + stock +
                                 "?period1=1554504399&period2=1586126799&interval=1d&events=history",
                         filePath); 

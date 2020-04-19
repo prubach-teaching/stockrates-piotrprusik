@@ -29,7 +29,9 @@ public class StockData {
         FileWriter dataout = new FileWriter("data_out/" + stock + ".csv");
         dataout.write(line + ",Change" + "\n");
         
-        while (scanner.hasNextLine()) {
+        for (line : dataout) {
+            
+            if (scanner.hasNextLine()) {
             
                 line = scanner.nextLine();
                     
@@ -42,7 +44,8 @@ public class StockData {
 
             
             
-        }
+            }
+        }    
         
         dataout.close();
         

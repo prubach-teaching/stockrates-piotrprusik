@@ -38,7 +38,7 @@ public class StockData {
 
                 dataout.write(line + "," + ((close - open) / open) * 100 + "\n");
 
-            }
+            
             
         }
         

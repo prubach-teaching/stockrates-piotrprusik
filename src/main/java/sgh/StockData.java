@@ -33,9 +33,8 @@ public class StockData {
             
             double open = Double.valueOf(values[1]);
             double close = Double.valueOf(values[4]);
-            double change = (close - open) / open;
-            
-            dataout.write(line + "," + change * 100 + "\n");
+                        
+            dataout.write(line + "," + ((close - open) / open) * 100 + "\n");
             
             
             

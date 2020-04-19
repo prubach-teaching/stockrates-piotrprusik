@@ -23,7 +23,7 @@ public class StockData {
         }
         
         Scanner scanner = new Scanner(datain);        
-        scanner.nextLine();
+        String line = scanner.nextLine;
         
         //new file in dataout folder        
         FileWriter dataout = new FileWriter("data_out/" + stock + ".csv");

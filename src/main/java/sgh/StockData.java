@@ -27,9 +27,11 @@ public class StockData {
         FileWriter dataout = new FileWriter("data_out/" + stock + ".csv");
         dataout.write(line + ",% Change" + "\n");
         
-        if (scanner.hasnextline()) {
+        for (line : dataout) {
             
-        String[] values = line.split(",");
+            if (scanner.hasnextline()) {
+            
+            String[] values = line.split(",");
             
             double open = Double.valueOf(lineElem[1]);
             double close = Double.valueOf(lineElem[4]);
@@ -37,8 +39,8 @@ public class StockData {
             
             dataout.write(line + "," + change * 100 + "\n");
             
-        } else {                       
-            continue                
+            } 
+            
         }
         
         dataout.close();

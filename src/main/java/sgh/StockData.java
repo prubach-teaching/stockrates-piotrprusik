@@ -23,7 +23,7 @@ public class StockData {
         }
         
         Scanner scanner = new Scanner(datain);        
-        String line = scanner.nextLine();
+        scanner.nextLine();
         
         //new file in dataout folder        
         FileWriter dataout = new FileWriter("data_out/" + stock + ".csv");
@@ -31,6 +31,8 @@ public class StockData {
         
         while (scanner.hasNextLine()) {
             
+                String line = scanner.nextLine
+                    
                 String[] values = line.split(",");
 
                 double open = Double.valueOf(values[1]);

@@ -13,7 +13,7 @@ public class StockData {
 
     public static void getAndProcessChange(String stock) throws IOException {
         String filePath = "data_in/" + stock + ".csv";
-        File datain = new File("./" + filePath);
+        File datain = new File(filePath);
         
         // checking if file exists, download when not
         if (!datain.exists()) {        

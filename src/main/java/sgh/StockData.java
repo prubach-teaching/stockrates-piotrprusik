@@ -29,7 +29,7 @@ public class StockData {
         
         for (line : dataout) {
             
-            if (scanner.hasnextline()) {
+            if (scanner.hasNextLine()) {
             
             String[] values = line.split(",");
             

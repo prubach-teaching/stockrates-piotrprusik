@@ -29,9 +29,7 @@ public class StockData {
         FileWriter dataout = new FileWriter("data_out/" + stock + ".csv");
         dataout.write(line + ",Change" + "\n");
         
-        for (line : dataout) {
-            
-            if (scanner.hasNextLine()) {
+        while (scanner.hasNextLine()) {
             
                 String[] values = line.split(",");
 

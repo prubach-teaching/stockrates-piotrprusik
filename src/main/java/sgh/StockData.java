@@ -31,8 +31,8 @@ public class StockData {
             
             String[] values = line.split(",");
             
-            double open = Double.valueOf(lineElem[1]);
-            double close = Double.valueOf(lineElem[4]);
+            double open = Double.valueOf(values[1]);
+            double close = Double.valueOf(values[4]);
             double change = (close - open) / open;
             
             dataout.write(line + "," + change * 100 + "\n");

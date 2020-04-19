@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Scanner;
+import java.io.FileWriter;
 
 public class StockData {
 
@@ -27,16 +29,18 @@ public class StockData {
         FileWriter dataout = new FileWriter("data_out/" + stock + ".csv");
         dataout.write(line + ",Change" + "\n");
         
-        while (scanner.hasNextLine()) {
+        for (line : dataout) {
             
-            String[] values = line.split(",");
+            if (scanner.hasNextLine()) {
             
-            double open = Double.valueOf(values[1]);
-            double close = Double.valueOf(values[4]);
-                        
-            dataout.write(line + "," + ((close - open) / open) * 100 + "\n");
-            
-            
+                String[] values = line.split(",");
+
+                double open = Double.valueOf(values[1]);
+                double close = Double.valueOf(values[4]);
+
+                dataout.write(line + "," + ((close - open) / open) * 100 + "\n");
+
+            }
             
         }
         

@@ -12,12 +12,10 @@ public class StockData {
     public static void getAndProcessChange(String stock) throws IOException {
         String filePath = "data_in/" + stock + ".csv";
         File datain = new File(filepath);
-        if datain.exists() 
-        {
+        if (datain.exists()) {
         continue 
         } 
-        else 
-        {
+        else {
         download("https://query1.finance.yahoo.com/v7/finance/download/" + stock +
                                 "?period1=1554504399&period2=1586126799&interval=1d&events=history",
                         filePath); 

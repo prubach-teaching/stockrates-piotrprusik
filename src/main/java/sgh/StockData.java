@@ -25,7 +25,7 @@ public class StockData {
         
         //new file in dataout folder        
         FileWriter dataout = new FileWriter("data_out/" + stock + ".csv");
-        dataout.write(line + ",% Change" + "\n");
+        dataout.write(line + ",Change" + "\n");
         
         while (scanner.hasNextLine()) {
             

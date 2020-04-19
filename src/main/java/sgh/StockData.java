@@ -31,7 +31,7 @@ public class StockData {
         
         while (scanner.hasNextLine()) {
             
-                String line = scanner.nextLine
+                String line = scanner.nextLine;
                     
                 String[] values = line.split(",");
 

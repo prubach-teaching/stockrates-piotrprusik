@@ -12,6 +12,8 @@ public class StockData {
     public static void getAndProcessChange(String stock) throws IOException {
         String filePath = "data_in/" + stock + ".csv";
         File datain = new File(filepath);
+        
+        // checking if file exists, download when not
         if (datain.exists()) {
         continue 
         } 
@@ -20,8 +22,34 @@ public class StockData {
                                 "?period1=1554504399&period2=1586126799&interval=1d&events=history",
                         filePath); 
         }
-
-        //TODO Your code here
+        
+        Scanner scanner = new Scanner(datain);        
+        String line = scanner.nextLine();
+        
+        //new file in dataout folder        
+        FileWriter dataout = new FileWriter("data_out/" + stock + ".csv");
+        dataout.write(line + ",% Change" + "\n");
+        
+        if (scanner.hasnextline()) {
+            
+        String[] values = line.split(",");
+            
+            double open = Double.valueOf(lineElem[1]);
+            double close = Double.valueOf(lineElem[4]);
+            double change = (close - open) / open;
+            
+            dataout.write(line + "," + change * 100 + "\n");
+            
+        } else {                       
+            continue                
+        }
+        
+        dataout.close();
+        
+    }
+        
+      
+       
     }
 
     public static void download(String url, String fileName) throws IOException {
